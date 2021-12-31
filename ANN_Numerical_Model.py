@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import tensorflow as tf
 import pandas as pd
 import numpy as np
@@ -131,10 +125,3 @@ plt.title('Confusion Matrix')
 plt.ylabel('Actal Values')
 plt.xlabel('Predicted Values')
 plt.show()
-
-
-# In[ ]:
-
-
-
-
