@@ -144,3 +144,23 @@ plt.ylabel('Actal Values')
 plt.xlabel('Predicted Values')
 plt.show()
 
+#-----------------------------Learning Rate-------------------------------------------
+from sklearn.model_selection import learning_curve
+
+train_sizes, train_scores, test_scores = learning_curve(classifier,
+                                                        xtest, ytest, cv=10, scoring='accuracy',
+                                                        train_sizes=np.linspace(0.01, 1.0, 50))
+train_mean = np.mean(train_scores, axis=1)
+train_std = np.std(train_scores, axis=1)
+
+test_mean = np.mean(test_scores, axis=1)
+test_std = np.std(test_scores, axis=1)
+
+plt.subplots(1, figsize=(6,6))
+plt.plot(train_sizes, train_mean, '--', color='blue',  label="Training score")
+plt.plot(train_sizes, test_mean, color='blue', label="Cross-validation score")
+
+plt.title("Learning Curve")
+plt.xlabel("Training Set Size"), plt.ylabel("Accuracy Score"), plt.legend(loc="best")
+plt.tight_layout()
+plt.show()
